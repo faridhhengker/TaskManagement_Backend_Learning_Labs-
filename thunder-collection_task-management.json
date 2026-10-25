@@ -1,0 +1,282 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "Task Management REST API - Faridh Adzan Al Arsy (21114012610046)",
+  "collectionId": "taskflow-backend-eval",
+  "dateExported": "2026-10-25",
+  "version": "1.1",
+  "folders": [
+    {
+      "containerId": "",
+      "sortNum": 10000,
+      "name": "1. Task Management CRUD"
+    },
+    {
+      "containerId": "",
+      "sortNum": 20000,
+      "name": "2. Filter & Pencarian"
+    },
+    {
+      "containerId": "",
+      "sortNum": 30000,
+      "name": "3. Master Data (Categories, Priorities, Statuses)"
+    },
+    {
+      "containerId": "",
+      "sortNum": 40000,
+      "name": "4. Task History & Statistics"
+    },
+    {
+      "containerId": "",
+      "sortNum": 50000,
+      "name": "5. Error Handling Tests"
+    }
+  ],
+  "settings": {
+    "options": {
+      "baseUrl": "https://task-management-one-navy.vercel.app/api"
+    }
+  },
+  "variables": [
+    {
+      "name": "baseUrl",
+      "value": "https://task-management-one-navy.vercel.app/api"
+    }
+  ],
+  "requests": [
+    {
+      "_id": "req_health",
+      "colId": "taskflow-backend-eval",
+      "containerId": "",
+      "name": "00. Health Check & Database Connection (Supabase Transaction Pooler)",
+      "url": "https://task-management-one-navy.vercel.app/api/health",
+      "method": "GET",
+      "sortNum": 5000,
+      "headers": []
+    },
+    {
+      "_id": "req_get_all_tasks",
+      "colId": "taskflow-backend-eval",
+      "containerId": "1. Task Management CRUD",
+      "name": "01. getDaftarTugas - Ambil Seluruh Tugas Relasional",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks",
+      "method": "GET",
+      "sortNum": 10000,
+      "headers": []
+    },
+    {
+      "_id": "req_get_task_by_id",
+      "colId": "taskflow-backend-eval",
+      "containerId": "1. Task Management CRUD",
+      "name": "02. Detail Tugas Berdasarkan ID",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks/1",
+      "method": "GET",
+      "sortNum": 11000,
+      "headers": []
+    },
+    {
+      "_id": "req_create_task",
+      "colId": "taskflow-backend-eval",
+      "containerId": "1. Task Management CRUD",
+      "name": "03. tambahTugasBaru - Tambah Tugas Baru",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks",
+      "method": "POST",
+      "sortNum": 12000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Implementasi Integrasi Supabase Transaction Pooler\",\n  \"description\": \"Konfigurasi koneksi PostgreSQL port 6543 dan auto-migration tabel\",\n  \"due_date\": \"2026-11-05T12:00:00Z\",\n  \"category_id\": 1,\n  \"priority_id\": 4,\n  \"status_id\": 1\n}"
+      }
+    },
+    {
+      "_id": "req_update_status",
+      "colId": "taskflow-backend-eval",
+      "containerId": "1. Task Management CRUD",
+      "name": "04. updateStatusTugas - Ubah Status & Catat Riwayat",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks/1/status",
+      "method": "PATCH",
+      "sortNum": 13000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"status_id\": 3,\n  \"notes\": \"Tugas telah selesai dikerjakan dan diverifikasi\"\n}"
+      }
+    },
+    {
+      "_id": "req_edit_task",
+      "colId": "taskflow-backend-eval",
+      "containerId": "1. Task Management CRUD",
+      "name": "05. editDetailTugas - Perbarui Informasi Tugas",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks/1",
+      "method": "PUT",
+      "sortNum": 14000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"title\": \"Menyiapkan Arsitektur REST API & Supabase (Revisi Live Vercel)\",\n  \"description\": \"Koneksi live ke Supabase Transaction Pooler port 6543 dengan SSL\",\n  \"due_date\": \"2026-10-30T17:00:00Z\",\n  \"category_id\": 1,\n  \"priority_id\": 5,\n  \"notes\": \"Pembaruan informasi pada live production Vercel\"\n}"
+      }
+    },
+    {
+      "_id": "req_delete_task",
+      "colId": "taskflow-backend-eval",
+      "containerId": "1. Task Management CRUD",
+      "name": "06. hapusTugas - Hapus Tugas Berdasarkan ID",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks/3",
+      "method": "DELETE",
+      "sortNum": 15000,
+      "headers": []
+    },
+    {
+      "_id": "req_filter_category",
+      "colId": "taskflow-backend-eval",
+      "containerId": "2. Filter & Pencarian",
+      "name": "07. cariTugasByKategori - Filter Kategori Pekerjaan (ID: 1)",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks?category_id=1",
+      "method": "GET",
+      "sortNum": 20000,
+      "headers": []
+    },
+    {
+      "_id": "req_filter_priority",
+      "colId": "taskflow-backend-eval",
+      "containerId": "2. Filter & Pencarian",
+      "name": "08. Filter Tugas Berdasarkan Prioritas (Penting: 4)",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks?priority_id=4",
+      "method": "GET",
+      "sortNum": 21000,
+      "headers": []
+    },
+    {
+      "_id": "req_filter_status",
+      "colId": "taskflow-backend-eval",
+      "containerId": "2. Filter & Pencarian",
+      "name": "09. Filter Tugas Berdasarkan Status (Sedang Dikerjakan: 2)",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks?status_id=2",
+      "method": "GET",
+      "sortNum": 22000,
+      "headers": []
+    },
+    {
+      "_id": "req_search_keyword",
+      "colId": "taskflow-backend-eval",
+      "containerId": "2. Filter & Pencarian",
+      "name": "10. Pencarian Tugas Berdasarkan Kata Kunci Judul",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks?search=Laporan",
+      "method": "GET",
+      "sortNum": 23000,
+      "headers": []
+    },
+    {
+      "_id": "req_get_categories",
+      "colId": "taskflow-backend-eval",
+      "containerId": "3. Master Data (Categories, Priorities, Statuses)",
+      "name": "11. Ambil Daftar Kategori",
+      "url": "https://task-management-one-navy.vercel.app/api/categories",
+      "method": "GET",
+      "sortNum": 30000,
+      "headers": []
+    },
+    {
+      "_id": "req_create_category",
+      "colId": "taskflow-backend-eval",
+      "containerId": "3. Master Data (Categories, Priorities, Statuses)",
+      "name": "12. Tambah Kategori Baru",
+      "url": "https://task-management-one-navy.vercel.app/api/categories",
+      "method": "POST",
+      "sortNum": 31000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"category_name\": \"Riset & Pengembangan\",\n  \"description\": \"Tugas riset arsitektur cloud, database pooling, dan deployment\"\n}"
+      }
+    },
+    {
+      "_id": "req_get_priorities",
+      "colId": "taskflow-backend-eval",
+      "containerId": "3. Master Data (Categories, Priorities, Statuses)",
+      "name": "13. Ambil Daftar 5 Tingkat Prioritas",
+      "url": "https://task-management-one-navy.vercel.app/api/priorities",
+      "method": "GET",
+      "sortNum": 32000,
+      "headers": []
+    },
+    {
+      "_id": "req_get_statuses",
+      "colId": "taskflow-backend-eval",
+      "containerId": "3. Master Data (Categories, Priorities, Statuses)",
+      "name": "14. Ambil Daftar 3 Status Pengerjaan",
+      "url": "https://task-management-one-navy.vercel.app/api/statuses",
+      "method": "GET",
+      "sortNum": 33000,
+      "headers": []
+    },
+    {
+      "_id": "req_task_history",
+      "colId": "taskflow-backend-eval",
+      "containerId": "4. Task History & Statistics",
+      "name": "15. Ambil Log Audit Riwayat Status (task_history)",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks/1/history",
+      "method": "GET",
+      "sortNum": 40000,
+      "headers": []
+    },
+    {
+      "_id": "req_stats",
+      "colId": "taskflow-backend-eval",
+      "containerId": "4. Task History & Statistics",
+      "name": "16. Ambil Statistik Tugas Real-time",
+      "url": "https://task-management-one-navy.vercel.app/api/stats",
+      "method": "GET",
+      "sortNum": 41000,
+      "headers": []
+    },
+    {
+      "_id": "req_err_bad_request",
+      "colId": "taskflow-backend-eval",
+      "containerId": "5. Error Handling Tests",
+      "name": "17. Test Error 400 - Field Title Kosong",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks",
+      "method": "POST",
+      "sortNum": 50000,
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"description\": \"Pengujian error bad request tanpa menyertakan title\",\n  \"priority_id\": 2\n}"
+      }
+    },
+    {
+      "_id": "req_err_not_found",
+      "colId": "taskflow-backend-eval",
+      "containerId": "5. Error Handling Tests",
+      "name": "18. Test Error 404 - ID Tugas Tidak Ditemukan",
+      "url": "https://task-management-one-navy.vercel.app/api/tasks/999999",
+      "method": "GET",
+      "sortNum": 51000,
+      "headers": []
+    }
+  ]
+}

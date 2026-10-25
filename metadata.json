@@ -1,0 +1,6 @@
+{
+  "name": "TaskFlow - Task Management System",
+  "description": "Sistem Manajemen Tugas Relasional dengan REST API Backend Express dan Supabase",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
